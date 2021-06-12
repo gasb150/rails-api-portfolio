@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :social_media
   devise_for :users
   resources :skills
   resources :languages
