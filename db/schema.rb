@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_12_165147) do
+ActiveRecord::Schema.define(version: 2021_06_12_170051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,31 @@ ActiveRecord::Schema.define(version: 2021_06_12_165147) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "proyects", force: :cascade do |t|
+    t.string "name"
+    t.bigint "framework_id", null: false
+    t.bigint "language_id", null: false
+    t.bigint "skill_id", null: false
+    t.string "other"
+    t.string "imageurl"
+    t.string "live_url"
+    t.string "source_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["framework_id"], name: "index_proyects_on_framework_id"
+    t.index ["language_id"], name: "index_proyects_on_language_id"
+    t.index ["skill_id"], name: "index_proyects_on_skill_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "social_media", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -48,4 +71,7 @@ ActiveRecord::Schema.define(version: 2021_06_12_165147) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "proyects", "frameworks"
+  add_foreign_key "proyects", "languages"
+  add_foreign_key "proyects", "skills"
 end

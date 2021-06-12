@@ -12,5 +12,6 @@ class CreateProyects < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    load 'db/seeds.rb'
   end
 end

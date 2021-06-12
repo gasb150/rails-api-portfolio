@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#Frameworks
+Framework.create(name: 'NA').save
+Framework.create(name: 'Rails').save
+
+#Language
+Language.create(name: 'NA').save
+Language.create(name: 'Ruby').save
+
+#Skill
+Skill.create(name: 'NA').save
+Skill.create(name: 'GitLAb').save
