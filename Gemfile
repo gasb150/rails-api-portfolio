@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'simple_form'
 gem 'devise'
+gem "dotenv-rails"
+gem 'active_storage_validations'
 gem 'cloudinary'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -44,6 +46,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'bullet'
 end
 
 group :test do

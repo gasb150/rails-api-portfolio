@@ -1,44 +1,43 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @proyect.name %>
 </p>
-
+<p>
+  <strong>Images:</strong>
+  <% if @proyect.images.attached? %>
+    <% @proyect.images.each do |image| %>
+      <%= image.url %>
+    <%end%>
+  <%end %>
+</p>
 <p>
   <strong>Framework:</strong>
   <%= @proyect.framework.name %>
 </p>
-
 <p>
   <strong>Language:</strong>
   <%= @proyect.language.name %>
 </p>
-
 <p>
   <strong>Skill:</strong>
   <%= @proyect.skill.name %>
 </p>
-
 <p>
   <strong>Other:</strong>
   <%= @proyect.other %>
 </p>
-
 <p>
   <strong>Imageurl:</strong>
   <%= @proyect.imageurl %>
 </p>
-
 <p>
   <strong>Live url:</strong>
   <%= @proyect.live_url %>
 </p>
-
 <p>
   <strong>Source url:</strong>
   <%= @proyect.source_url %>
 </p>
-
 <%= link_to 'Edit', edit_proyect_path(@proyect) %> |
 <%= link_to 'Back', proyects_path %>

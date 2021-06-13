@@ -36,6 +36,8 @@ class ProyectsController < ApplicationController
 
   # PATCH/PUT /proyects/1 or /proyects/1.json
   def update
+#Image deletion process
+
     respond_to do |format|
       if @proyect.update(proyect_params)
         format.html { redirect_to @proyect, notice: "Proyect was successfully updated." }
@@ -59,11 +61,11 @@ class ProyectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_proyect
-      @proyect = Proyect.find(params[:id])
+      @proyect = Proyect.includes(images_attachments: :blob).find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def proyect_params
-      params.require(:proyect).permit(:name, :framework_id, :language_id, :skill_id, :other, :imageurl, :live_url, :source_url)
+      params.require(:proyect).permit(:name, :framework_id, :language_id, :skill_id, :other, :imageurl, :live_url, :source_url, images:[])
     end
 end
