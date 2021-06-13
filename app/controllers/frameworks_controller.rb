@@ -1,5 +1,5 @@
 class FrameworksController < ApplicationController
-  before_action :set_framework, only: %i[ show edit update destroy ]
+  before_action :set_framework, only: %i[show edit update destroy]
 
   # GET /frameworks or /frameworks.json
   def index
@@ -7,8 +7,7 @@ class FrameworksController < ApplicationController
   end
 
   # GET /frameworks/1 or /frameworks/1.json
-  def show
-  end
+  def show; end
 
   # GET /frameworks/new
   def new
@@ -16,8 +15,7 @@ class FrameworksController < ApplicationController
   end
 
   # GET /frameworks/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /frameworks or /frameworks.json
   def create
@@ -25,7 +23,7 @@ class FrameworksController < ApplicationController
 
     respond_to do |format|
       if @framework.save
-        format.html { redirect_to @framework, notice: "Framework was successfully created." }
+        format.html { redirect_to @framework, notice: 'Framework was successfully created.' }
         format.json { render :show, status: :created, location: @framework }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class FrameworksController < ApplicationController
   def update
     respond_to do |format|
       if @framework.update(framework_params)
-        format.html { redirect_to @framework, notice: "Framework was successfully updated." }
+        format.html { redirect_to @framework, notice: 'Framework was successfully updated.' }
         format.json { render :show, status: :ok, location: @framework }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,19 +49,20 @@ class FrameworksController < ApplicationController
   def destroy
     @framework.destroy
     respond_to do |format|
-      format.html { redirect_to frameworks_url, notice: "Framework was successfully destroyed." }
+      format.html { redirect_to frameworks_url, notice: 'Framework was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_framework
-      @framework = Framework.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def framework_params
-      params.require(:framework).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_framework
+    @framework = Framework.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def framework_params
+    params.require(:framework).permit(:name)
+  end
 end

@@ -1,57 +1,57 @@
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class ProyectsTest < ApplicationSystemTestCase
   setup do
     @proyect = proyects(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit proyects_url
-    assert_selector "h1", text: "Proyects"
+    assert_selector 'h1', text: 'Proyects'
   end
 
-  test "creating a Proyect" do
+  test 'creating a Proyect' do
     visit proyects_url
-    click_on "New Proyect"
+    click_on 'New Proyect'
 
-    fill_in "Framework", with: @proyect.framework_id
-    fill_in "Imageurl", with: @proyect.imageurl
-    fill_in "Language", with: @proyect.language_id
-    fill_in "Live url", with: @proyect.live_url
-    fill_in "Name", with: @proyect.name
-    fill_in "Other", with: @proyect.other
-    fill_in "Skill", with: @proyect.skill_id
-    fill_in "Source url", with: @proyect.source_url
-    click_on "Create Proyect"
+    fill_in 'Framework', with: @proyect.framework_id
+    fill_in 'Imageurl', with: @proyect.imageurl
+    fill_in 'Language', with: @proyect.language_id
+    fill_in 'Live url', with: @proyect.live_url
+    fill_in 'Name', with: @proyect.name
+    fill_in 'Other', with: @proyect.other
+    fill_in 'Skill', with: @proyect.skill_id
+    fill_in 'Source url', with: @proyect.source_url
+    click_on 'Create Proyect'
 
-    assert_text "Proyect was successfully created"
-    click_on "Back"
+    assert_text 'Proyect was successfully created'
+    click_on 'Back'
   end
 
-  test "updating a Proyect" do
+  test 'updating a Proyect' do
     visit proyects_url
-    click_on "Edit", match: :first
+    click_on 'Edit', match: :first
 
-    fill_in "Framework", with: @proyect.framework_id
-    fill_in "Imageurl", with: @proyect.imageurl
-    fill_in "Language", with: @proyect.language_id
-    fill_in "Live url", with: @proyect.live_url
-    fill_in "Name", with: @proyect.name
-    fill_in "Other", with: @proyect.other
-    fill_in "Skill", with: @proyect.skill_id
-    fill_in "Source url", with: @proyect.source_url
-    click_on "Update Proyect"
+    fill_in 'Framework', with: @proyect.framework_id
+    fill_in 'Imageurl', with: @proyect.imageurl
+    fill_in 'Language', with: @proyect.language_id
+    fill_in 'Live url', with: @proyect.live_url
+    fill_in 'Name', with: @proyect.name
+    fill_in 'Other', with: @proyect.other
+    fill_in 'Skill', with: @proyect.skill_id
+    fill_in 'Source url', with: @proyect.source_url
+    click_on 'Update Proyect'
 
-    assert_text "Proyect was successfully updated"
-    click_on "Back"
+    assert_text 'Proyect was successfully updated'
+    click_on 'Back'
   end
 
-  test "destroying a Proyect" do
+  test 'destroying a Proyect' do
     visit proyects_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on 'Destroy', match: :first
     end
 
-    assert_text "Proyect was successfully destroyed"
+    assert_text 'Proyect was successfully destroyed'
   end
 end

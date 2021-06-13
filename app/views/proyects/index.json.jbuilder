@@ -1,1 +1,1 @@
-json.array! @proyects, partial: "proyects/proyect", as: :proyect
+json.array! @proyects, partial: 'proyects/proyect', as: :proyect

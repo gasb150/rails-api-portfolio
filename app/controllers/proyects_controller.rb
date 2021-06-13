@@ -1,5 +1,5 @@
 class ProyectsController < ApplicationController
-  before_action :set_proyect, only: %i[ show edit update destroy ]
+  before_action :set_proyect, only: %i[show edit update destroy]
 
   # GET /proyects or /proyects.json
   def index
@@ -7,8 +7,7 @@ class ProyectsController < ApplicationController
   end
 
   # GET /proyects/1 or /proyects/1.json
-  def show
-  end
+  def show; end
 
   # GET /proyects/new
   def new
@@ -16,8 +15,7 @@ class ProyectsController < ApplicationController
   end
 
   # GET /proyects/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /proyects or /proyects.json
   def create
@@ -25,7 +23,7 @@ class ProyectsController < ApplicationController
 
     respond_to do |format|
       if @proyect.save
-        format.html { redirect_to @proyect, notice: "Proyect was successfully created." }
+        format.html { redirect_to @proyect, notice: 'Proyect was successfully created.' }
         format.json { render :show, status: :created, location: @proyect }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,11 +34,11 @@ class ProyectsController < ApplicationController
 
   # PATCH/PUT /proyects/1 or /proyects/1.json
   def update
-#Image deletion process
+    # Image deletion process
 
     respond_to do |format|
       if @proyect.update(proyect_params)
-        format.html { redirect_to @proyect, notice: "Proyect was successfully updated." }
+        format.html { redirect_to @proyect, notice: 'Proyect was successfully updated.' }
         format.json { render :show, status: :ok, location: @proyect }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +51,21 @@ class ProyectsController < ApplicationController
   def destroy
     @proyect.destroy
     respond_to do |format|
-      format.html { redirect_to proyects_url, notice: "Proyect was successfully destroyed." }
+      format.html { redirect_to proyects_url, notice: 'Proyect was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_proyect
-      @proyect = Proyect.includes(images_attachments: :blob).find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def proyect_params
-      params.require(:proyect).permit(:name, :framework_id, :language_id, :skill_id, :other, :imageurl, :live_url, :source_url, images:[])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_proyect
+    @proyect = Proyect.includes(images_attachments: :blob).find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def proyect_params
+    params.require(:proyect).permit(:name, :framework_id, :language_id, :skill_id, :other, :imageurl, :live_url,
+                                    :source_url, images: [])
+  end
 end

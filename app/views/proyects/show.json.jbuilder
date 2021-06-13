@@ -1,1 +1,1 @@
-json.partial! "proyects/proyect", proyect: @proyect
+json.partial! 'proyects/proyect', proyect: @proyect

@@ -1,1 +1,1 @@
-json.array! @frameworks, partial: "frameworks/framework", as: :framework
+json.array! @frameworks, partial: 'frameworks/framework', as: :framework
