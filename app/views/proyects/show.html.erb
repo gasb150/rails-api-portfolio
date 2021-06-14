@@ -8,6 +8,7 @@
   <% if @proyect.images.attached? %>
     <% @proyect.images.each do |image| %>
       <%= image.url %>
+      
     <%end%>
   <%end %>
 </p>
