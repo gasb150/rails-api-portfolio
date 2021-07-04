@@ -48,7 +48,7 @@ group :development do
   gem 'bullet'
   gem 'spring'
 end
-
+gem 'rack-cors'
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
