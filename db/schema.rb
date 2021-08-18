@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_18_022311) do
+ActiveRecord::Schema.define(version: 2021_08_18_023950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,24 @@ ActiveRecord::Schema.define(version: 2021_08_18_022311) do
     t.index ["project_id"], name: "index_project_frameworks_on_project_id"
   end
 
+  create_table "project_languages", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "language_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["language_id"], name: "index_project_languages_on_language_id"
+    t.index ["project_id"], name: "index_project_languages_on_project_id"
+  end
+
+  create_table "project_skills", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_project_skills_on_project_id"
+    t.index ["skill_id"], name: "index_project_skills_on_skill_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.integer "priority"
     t.string "name"
@@ -107,4 +125,8 @@ ActiveRecord::Schema.define(version: 2021_08_18_022311) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "project_frameworks", "frameworks"
   add_foreign_key "project_frameworks", "projects"
+  add_foreign_key "project_languages", "languages"
+  add_foreign_key "project_languages", "projects"
+  add_foreign_key "project_skills", "projects"
+  add_foreign_key "project_skills", "skills"
 end

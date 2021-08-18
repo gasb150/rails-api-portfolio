@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     p project_params
+    p @project.save!
     p @project
     respond_to do |format|
       if @project.save
@@ -66,7 +67,7 @@ class ProjectsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def project_params
-    params.require(:project).permit(:name, :other, :imageurl, :live_url,:source_url,
-    framework_ids: [], language_ids: [], skill_ids: [],  images: [])
+    params.require(:project).permit(:name, :priority, :other, :imageurl, :live_url, :source_url,
+                                    framework_ids: [], language_ids: [], skill_ids: [], images: [])
   end
 end

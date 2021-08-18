@@ -2,8 +2,8 @@
 
 one:
   proyect: one
-  framework: one
+  language: one
 
 two:
   proyect: two
-  framework: two
+  language: two

@@ -5,9 +5,10 @@
 
   <div class="form-inputs">
     <%= f.input :name, input_html: {class: 'input is-info'}%>
+    <%= f.input :priority%>
     <%= f.collection_check_boxes :framework_ids, Framework.all, :id, :name, input_html: {class: 'select'}, as: :check_boxes%>
-    <%= f.association :language,  as: :check_boxes %>
-    <%= f.association :skill,  as: :check_boxes %>
+    <%= f.association :languages,  as: :check_boxes %>
+    <%= f.association :skills,  as: :check_boxes %>
     <%= f.input :other %>
     <%= f.input :imageurl %>
     <%= f.input :live_url %>
