@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Frameworks</th>
+        <th scope="col">Languages</th>
+        <th scope="col">Skills</th>
+        <th scope="col">Other</th>
+        <th scope="col">Live View</th>
+        <th scope="col">Source</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr class="">
+        <td> <%= @project.name %></td>
+        <td>
+          <% @project.frameworks.each do |framework| %>
+            <%= framework.name %>
+          <%end%>
+        </td>
+        <td>
+          <% @project.languages.each do |language| %>
+            <%= language.name %>
+          <%end%>
+        </td>
+        <td>
+          <% @project.skills.each do |skill| %>
+            <%= skill.name %>
+          <%end%>
+        </td>
+        <td>   <%= @project.other %> </td>
+        <td>  <%= @project.live_url %> </td>
+        <td> <%= @project.source_url %> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="conainer row justify-content-center">
+  <div class="col-lg-12 text-center">
+    <p class="h5"><strong>Images</strong></p>
+  </div>
+  <% if @project.images.attached? %>
+    <% @project.images.each_with_index do |image, index| %>
+      <% csize = images_size(@project) %>
+      <%= image_tag image.url, class: "col-lg-#{csize}", alt:"project_#{index}" %>
+    <%end%>
+  <%end %>
+</div>
+<p>
+</p>
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

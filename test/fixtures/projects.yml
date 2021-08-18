@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  framework: one
+  language: one
+  skill: one
+  other: MyString
+  imageurl: MyString
+  live_url: MyString
+  source_url: MyString
+
+two:
+  name: MyString
+  framework: two
+  language: two
+  skill: two
+  other: MyString
+  imageurl: MyString
+  live_url: MyString
+  source_url: MyString
