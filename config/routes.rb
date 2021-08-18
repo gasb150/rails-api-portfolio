@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :proyects
+  resources :projects
   resources :social_media
   devise_for :users
   resources :skills
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :frameworks
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  root 'proyects#index'
+  root 'projects#index'
 end

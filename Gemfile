@@ -26,6 +26,7 @@ gem 'cloudinary'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'simple_form'
+gem 'bootstrap', '~> 4.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

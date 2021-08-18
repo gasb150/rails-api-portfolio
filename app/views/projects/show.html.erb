@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Name:</strong>
-  <%= @proyect.name %>
+  <%= @project.name %>
 </p>
 <p>
   <strong>Images:</strong>
-  <% if @proyect.images.attached? %>
-    <% @proyect.images.each do |image| %>
+  <% if @project.images.attached? %>
+    <% @project.images.each do |image| %>
       <%= image.url %>
       
     <%end%>
@@ -14,31 +14,31 @@
 </p>
 <p>
   <strong>Framework:</strong>
-  <%= @proyect.framework.name %>
+  <%= @project.framework.name %>
 </p>
 <p>
   <strong>Language:</strong>
-  <%= @proyect.language.name %>
+  <%= @project.language.name %>
 </p>
 <p>
   <strong>Skill:</strong>
-  <%= @proyect.skill.name %>
+  <%= @project.skill.name %>
 </p>
 <p>
   <strong>Other:</strong>
-  <%= @proyect.other %>
+  <%= @project.other %>
 </p>
 <p>
   <strong>Imageurl:</strong>
-  <%= @proyect.imageurl %>
+  <%= @project.imageurl %>
 </p>
 <p>
   <strong>Live url:</strong>
-  <%= @proyect.live_url %>
+  <%= @project.live_url %>
 </p>
 <p>
   <strong>Source url:</strong>
-  <%= @proyect.source_url %>
+  <%= @project.source_url %>
 </p>
-<%= link_to 'Edit', edit_proyect_path(@proyect) %> |
-<%= link_to 'Back', proyects_path %>
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
