@@ -1,44 +1,54 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
-<p>
-  <strong>Images:</strong>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Frameworks</th>
+        <th scope="col">Languages</th>
+        <th scope="col">Skills</th>
+        <th scope="col">Other</th>
+        <th scope="col">Live View</th>
+        <th scope="col">Source</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr class="">
+        <td> <%= @project.name %></td>
+        <td>
+          <% @project.frameworks.each do |framework| %>
+            <%= framework.name %>
+          <%end%>
+        </td>
+        <td>
+          <% @project.languages.each do |language| %>
+            <%= language.name %>
+          <%end%>
+        </td>
+        <td>
+          <% @project.skills.each do |skill| %>
+            <%= skill.name %>
+          <%end%>
+        </td>
+        <td>   <%= @project.other %> </td>
+        <td>  <%= @project.live_url %> </td>
+        <td> <%= @project.source_url %> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="conainer row justify-content-center">
+  <div class="col-lg-12 text-center">
+    <p class="h5"><strong>Images</strong></p>
+  </div>
   <% if @project.images.attached? %>
-    <% @project.images.each do |image| %>
-      <%= image.url %>
-      
+    <% @project.images.each_with_index do |image, index| %>
+      <% csize = images_size(@project) %>
+      <%= image_tag image.url, class: "col-lg-#{csize}", alt:"project_#{index}" %>
     <%end%>
   <%end %>
-</p>
+</div>
 <p>
-  <strong>Framework:</strong>
-  <%= @project.framework.name %>
-</p>
-<p>
-  <strong>Language:</strong>
-  <%= @project.language.name %>
-</p>
-<p>
-  <strong>Skill:</strong>
-  <%= @project.skill.name %>
-</p>
-<p>
-  <strong>Other:</strong>
-  <%= @project.other %>
-</p>
-<p>
-  <strong>Imageurl:</strong>
-  <%= @project.imageurl %>
-</p>
-<p>
-  <strong>Live url:</strong>
-  <%= @project.live_url %>
-</p>
-<p>
-  <strong>Source url:</strong>
-  <%= @project.source_url %>
 </p>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

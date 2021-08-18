@@ -55,33 +55,6 @@ ActiveRecord::Schema.define(version: 2021_08_18_023950) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "project_frameworks", force: :cascade do |t|
-    t.bigint "project_id", null: false
-    t.bigint "framework_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["framework_id"], name: "index_project_frameworks_on_framework_id"
-    t.index ["project_id"], name: "index_project_frameworks_on_project_id"
-  end
-
-  create_table "project_languages", force: :cascade do |t|
-    t.bigint "project_id", null: false
-    t.bigint "language_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["language_id"], name: "index_project_languages_on_language_id"
-    t.index ["project_id"], name: "index_project_languages_on_project_id"
-  end
-
-  create_table "project_skills", force: :cascade do |t|
-    t.bigint "project_id", null: false
-    t.bigint "skill_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["project_id"], name: "index_project_skills_on_project_id"
-    t.index ["skill_id"], name: "index_project_skills_on_skill_id"
-  end
-
   create_table "projects", force: :cascade do |t|
     t.integer "priority"
     t.string "name"
@@ -91,6 +64,33 @@ ActiveRecord::Schema.define(version: 2021_08_18_023950) do
     t.string "source_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "projects_frameworks", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "framework_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["framework_id"], name: "index_projects_frameworks_on_framework_id"
+    t.index ["project_id"], name: "index_projects_frameworks_on_project_id"
+  end
+
+  create_table "projects_languages", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "language_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["language_id"], name: "index_projects_languages_on_language_id"
+    t.index ["project_id"], name: "index_projects_languages_on_project_id"
+  end
+
+  create_table "projects_skills", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "skill_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_projects_skills_on_project_id"
+    t.index ["skill_id"], name: "index_projects_skills_on_skill_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -123,10 +123,10 @@ ActiveRecord::Schema.define(version: 2021_08_18_023950) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "project_frameworks", "frameworks"
-  add_foreign_key "project_frameworks", "projects"
-  add_foreign_key "project_languages", "languages"
-  add_foreign_key "project_languages", "projects"
-  add_foreign_key "project_skills", "projects"
-  add_foreign_key "project_skills", "skills"
+  add_foreign_key "projects_frameworks", "frameworks"
+  add_foreign_key "projects_frameworks", "projects"
+  add_foreign_key "projects_languages", "languages"
+  add_foreign_key "projects_languages", "projects"
+  add_foreign_key "projects_skills", "projects"
+  add_foreign_key "projects_skills", "skills"
 end

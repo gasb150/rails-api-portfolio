@@ -1,12 +1,12 @@
 class Project < ApplicationRecord
-  has_many :project_frameworks, dependent: :destroy
-  has_many :frameworks, through: :project_frameworks
+  has_many :projects_frameworks, dependent: :destroy
+  has_many :frameworks, through: :projects_frameworks
 
-  has_many :project_languages, dependent: :destroy
-  has_many :languages, through: :project_languages
+  has_many :projects_languages, dependent: :destroy
+  has_many :languages, through: :projects_languages
 
-  has_many :project_skills, dependent: :destroy
-  has_many :skills, through: :project_skills
+  has_many :projects_skills, dependent: :destroy
+  has_many :skills, through: :projects_skills
 
   has_many_attached :images
 

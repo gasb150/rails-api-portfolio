@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  proyect: one
-  language: one
+  project: one
+  framework: one
 
 two:
-  proyect: two
-  language: two
+  project: two
+  framework: two
